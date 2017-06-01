@@ -1,0 +1,58 @@
+app.blade.php
+
+<script>
+
+    function filePreview(input){
+    if(input.files && input.files[0]){
+        
+        var reader = new FileReader();
+        reader.onload = function(e){
+            var img = $("#mimg");
+            img.html('<img src="'+e.target.result+'" width="250" height="200">');
+        }
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+        $(document).ready(function(){
+            // console.log($('#img').val());
+            $('#img').on('change',function(){
+                // console.log($('#img').val());
+                // $('#show').attr('src',$('#img').val());
+                filePreview(this);
+            });
+        })
+    </script>
+=======================
+registr.blade.php
+
+<div class="form-group{{ $errors->has('img') ? ' has-error' : '' }}">
+                            <label for="img" class="col-md-4 control-label">IMAGE</label>
+
+                            <div class="col-md-6">
+                                <input id="img" type="file" class="form-control" name="img" style="padding:0px;">
+                                <div class="col-md-6" id="mimg">
+                                    
+                                </div>
+                             
+                                @if ($errors->has('img'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('img') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+======================
+
+registercontroller
+
+'img'=>'required|image', --kisat
+
+
+if($request->hasFile('img')){
+            $file = $request->file('img');
+            $input['img'] = $file->getClientOriginalName('img');
+            $file->move(public_path().'/img',$input['img']);
+        }
+
+==================================

@@ -1,0 +1,7 @@
+----MIGRATION PROBLEM-----
+add this line in the boot() method of the AppServiceProvider :
+Schema::defaultStringLength(191);
+
+VEREVUM use  Illuminate\Support\Facades\Schema; 
+
+-------------------------

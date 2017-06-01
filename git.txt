@@ -1,0 +1,22 @@
+github pass ->a1234567
+
+git init  - инициализация git
+
+git config --global user.name "Andrey" - имя пользователя
+git config --global user.email andrey@example.com  - мэил пользователя
+
+git config --list
+git status
+git add .
+git commit -a -m"add file"
+git push
+git clone   gitic link@
+git fetch   dannineri vercum + git pull(pull@ petqa vor im kompum obnavit ani)
+git pull
+
+git branch <name>;    		sarqel vetka
+git branch -v         		nael sarqvac vetkaner@
+git checkout <name>   		sarqel u gnal brenchi vra
+
+git merge <branch name> 	+ masterin vetkan         
+
